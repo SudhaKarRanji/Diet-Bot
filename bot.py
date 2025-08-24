@@ -7,6 +7,10 @@ import json
 import chromadb
 from utils import create_embeddings_database, process_documents, create_nutrition_collection
 
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 class DietBot:
     def __init__(self):
         """Initialize the Diet Bot with ChromaDB and Ollama"""
